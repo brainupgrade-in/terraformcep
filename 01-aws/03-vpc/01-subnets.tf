@@ -1,7 +1,7 @@
 resource "aws_subnet" "rajesh-vpc-pb-1a" {
   vpc_id = aws_vpc.rajesh-vpc.id
   cidr_block = "10.0.1.0/24"
-  availability_zone = "ap-south-1a"
+  availability_zone = "ap-southeast-1a"
     map_public_ip_on_launch = true
 
     tags ={
@@ -16,7 +16,7 @@ resource "aws_route_table_association" "pb-1a" {
 resource "aws_subnet" "rajesh-vpc-pb-1b" {
     vpc_id = aws_vpc.rajesh-vpc.id
   cidr_block = "10.0.3.0/24"
-  availability_zone = "ap-south-1b"
+  availability_zone = "ap-southeast-1b"
     map_public_ip_on_launch = true
 
     tags ={
@@ -52,7 +52,7 @@ resource "aws_route_table" "rajesh-vpc-rt-pvt" {
 resource "aws_subnet" "rajesh-vpc-pvt-1a" {
     vpc_id = aws_vpc.rajesh-vpc.id
   cidr_block = "10.0.2.0/24"
-  availability_zone = "ap-south-1a"
+  availability_zone = "ap-southeast-1a"
     tags ={
         Name = "rajesh-vpc-pvt-1a"
     }
@@ -64,7 +64,7 @@ resource "aws_route_table_association" "pvt-1a" {
 resource "aws_subnet" "rajesh-vpc-pvt-1b" {
     vpc_id = aws_vpc.rajesh-vpc.id
   cidr_block = "10.0.4.0/24"
-  availability_zone = "ap-south-1b"
+  availability_zone = "ap-southeast-1b"
     tags ={
         Name = "rajesh-vpc-pvt-1b"
     }
