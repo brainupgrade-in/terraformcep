@@ -1,6 +1,6 @@
 resource "aws_instance" "rajesh-vpc-ec2" {
-  count                         = 3
-  ami                           = "ami-0d2986f2e8c0f7d01"
+  count                         = 2
+  ami                           = "ami-0c802847a7dd848c0"
   instance_type                 = "t3a.micro"
   key_name                      = "cirrus"
   vpc_security_group_ids        = [aws_security_group.rajesh-vpc-sg.id]
