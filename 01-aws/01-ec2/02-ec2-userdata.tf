@@ -1,8 +1,8 @@
 resource "aws_instance" "apache-server" {
-  ami = "ami-0d2986f2e8c0f7d01" 
+  ami = "ami-0c802847a7dd848c0" 
   instance_type = "t3a.nano"
   tags={
-    Name = "apache-server"
+    Name = "terraform-httpd-rajesh"
   }
   user_data = <<EOF
     #!/bin/bash

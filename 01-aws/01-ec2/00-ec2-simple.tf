@@ -1,8 +1,8 @@
 resource "aws_instance" "tier-front" {
-  ami           = "ami-0d2986f2e8c0f7d01"
+  ami           = "ami-0c802847a7dd848c0"
   instance_type = "t3a.micro"
 
   tags = {
-    Name = "MyFirstTerraformEC2"
+    Name = "terraform-ec2-rajesh"
   }
 }
