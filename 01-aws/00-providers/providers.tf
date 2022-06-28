@@ -10,6 +10,9 @@ terraform {
 }
 
 provider "aws" {
-  region  = "ap-southeast-1"
+  region  = var.region
 }
 
+variable "region"{
+  default = "ap-southeast-1"
+}
