@@ -16,9 +16,9 @@ module "ec2_instances" {
 
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t3a.nano"
-  vpc_id = aws_default_vpc.default_vpc_id
-  subnet_id = aws_default_subnet.default_subnet_id
-  
+  vpc_id = aws_default_vpc.default_vpc.id
+  subnet_id = aws_default_subnet.default_subnet.id
+
   tags = {
     Terraform   = "true"
     Environment = "dev"
