@@ -27,7 +27,7 @@ resource "aws_autoscaling_policy" "test" {
   cooldown               = 180
 }
 data "aws_vpc" "main"{
-    id="vpc-0fa1dcbf4951c2e69"
+    id="vpc-0728dc09a931e3018"
 }
 data "aws_subnet_ids" "test" {
   vpc_id = data.aws_vpc.main.id
