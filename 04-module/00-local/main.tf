@@ -11,6 +11,6 @@ module "website_s3_bucket" {
   }
 }
 
-variables "region"{
+variable "region"{
     default = "ap-southeast-1"
 }
