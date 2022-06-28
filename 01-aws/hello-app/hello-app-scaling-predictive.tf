@@ -1,6 +1,6 @@
 resource "aws_launch_template" "test" {
   name_prefix   = "test"
-  image_id      = "ami-0cc8dc7a69cd8b547"
+  image_id      = "ami-0c802847a7dd848c0"
   instance_type = "t3a.nano"
   user_data = filebase64("app-launch.sh")
 }
