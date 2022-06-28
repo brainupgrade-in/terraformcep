@@ -16,7 +16,9 @@ module "ec2_instances" {
 
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t3a.nano"
-
+  vpc_id = aws_default_vpc.default_vpc_id
+  subnet_id = aws_default_subnet.default_subnet_id
+  
   tags = {
     Terraform   = "true"
     Environment = "dev"
@@ -34,4 +36,9 @@ data "aws_ami" "ubuntu" {
     values = ["hvm"]
   }
   owners = ["099720109477"] # Canonical
+}
+resource "aws_default_vpc" "default_vpc" {
+}
+resource "aws_default_subnet" "default_subnet" {
+  vpc_id = aws_default_vpc.default_vpc.id
 }
