@@ -41,3 +41,17 @@ resource "aws_s3_bucket_policy" "s3_bucket" {
     ]
   })
 }
+resource "aws_s3_bucket_object" "file" {
+  for_each = fileset(var.website_root, "**")
+
+  bucket      = aws_s3_bucket.s3_bucket.id
+  key         = each.key
+  source      = "${var.website_root}/${each.key}"
+  source_hash = filemd5("${var.website_root}/${each.key}")
+  acl         = "public-read"
+}
+variable "website_root" {
+  type        = string
+  description = "Path to the root of website content"
+  default     = "www"
+}
