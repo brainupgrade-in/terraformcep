@@ -6,6 +6,9 @@ module "provider"{
 variable "region"{
     default = "ap-southeast-1"
 }
+variable "zone"{
+  default = "ap-southeast-1a"
+}
 
 module "ec2_instances" {
   source  = "terraform-aws-modules/ec2-instance/aws"
@@ -39,5 +42,5 @@ data "aws_ami" "ubuntu" {
 resource "aws_default_vpc" "default_vpc" {
 }
 resource "aws_default_subnet" "default_subnet" {
-  vpc_id = aws_default_vpc.default_vpc.id
+  availability_zone = var.zone
 }
