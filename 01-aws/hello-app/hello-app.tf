@@ -41,7 +41,8 @@ resource "aws_lb" "test" {
   name               = "test"
   internal           = false
   load_balancer_type = "network"
-  subnets            = [for subnet in data.aws_subnet.test : subnet.id]
+  # subnets            = [for subnet in data.aws_subnet.test : subnet.id]
+  subnets = [aws_subnet.rajesh-vpc-pb-1a.id,aws_subnet.rajesh-vpc-pb-1b.id]
 
 }
 resource "aws_lb_listener" "test" {
