@@ -16,8 +16,6 @@ module "ec2_instances" {
 
   ami                    = data.aws_ami.ubuntu.id
   instance_type          = "t3a.nano"
-  vpc_security_group_ids = [module.vpc.default_security_group_id]
-  subnet_id              = module.vpc.public_subnets[instance_count_id]
 
   tags = {
     Terraform   = "true"
