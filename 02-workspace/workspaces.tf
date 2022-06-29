@@ -17,13 +17,13 @@ variable "region"{
   default = "ap-southeast-1"
 }
 variable "author"{
-    default = ""
+    default = "rajesh"
 }
 resource "aws_instance" "webserver" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3a.micro"
   tags = {
-    Name = "terraform-workspace-$var.author"
+    Name = "terraform-workspace-${var.author}"
   }
 }
 data "aws_ami" "ubuntu" {
