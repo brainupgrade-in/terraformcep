@@ -5,7 +5,7 @@ resource "aws_launch_template" "test" {
   user_data = filebase64("app-launch.sh")
 }
 resource "aws_autoscaling_group" "test" {
-  availability_zones        = ["ap-southeast-1a"]
+  # availability_zones        = ["ap-southeast-1a"]
   name                      = "test"
   max_size                  = 3
   min_size                  = 1
