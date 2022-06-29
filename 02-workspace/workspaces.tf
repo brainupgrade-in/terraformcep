@@ -16,9 +16,6 @@ provider "aws" {
 variable "region"{
   default = "ap-southeast-1"
 }
-variable "author"{
-    default = "rajesh"
-}
 variable "environment" {
   type = string
   description = "(optional) describe your variable"
