@@ -19,11 +19,16 @@ variable "region"{
 variable "author"{
     default = "rajesh"
 }
+variable "environment" {
+  type = string
+  description = "(optional) describe your variable"
+  default = "dev"
+}
 resource "aws_instance" "webserver" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3a.micro"
   tags = {
-    Name = "terraform-workspace-${var.author}"
+    Name = "terraform-workspace-${var.environment}"
   }
 }
 data "aws_ami" "ubuntu" {
