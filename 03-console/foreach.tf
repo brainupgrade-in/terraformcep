@@ -30,3 +30,10 @@ resource "random_pet" "example" {
 # var.apps.sigma
 # { for key, value in var.apps : key => value if value.region == "us-east-1" }
 # cidrnetmask("172.16.0.0/12")
+# max (5,10)
+# min (2,44)
+# substr("hello world",0,5)
+# concat (["a"],["b","c"])
+# tostring(true)
+# split(",","hello,bar,foo")
+# abs (-100)
