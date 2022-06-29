@@ -18,17 +18,16 @@ resource "aws_autoscaling_group" "test" {
     version = "$Latest"
   }
   target_group_arns = [ aws_lb_target_group.test.arn ]
+  vpc_zone_identifier = [aws_subnet.rajesh-vpc-pb-1a.id,aws_subnet.rajesh-vpc-pb-1b.id]
 }
 resource "aws_autoscaling_policy" "test" {
   name                   = "test"
   adjustment_type        = "ChangeInCapacity"
   autoscaling_group_name = aws_autoscaling_group.test.name
-  scaling_adjustment     = 1
+  scaling_adjustment     = 2
   cooldown               = 180
 }
-data "aws_vpc" "main"{
-    id="vpc-0728dc09a931e3018"
-}
+
 data "aws_subnet_ids" "test" {
   vpc_id = data.aws_vpc.main.id
 }
