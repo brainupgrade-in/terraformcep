@@ -23,7 +23,7 @@ resource "aws_autoscaling_policy" "test" {
   name                   = "test"
   adjustment_type        = "ChangeInCapacity"
   autoscaling_group_name = aws_autoscaling_group.test.name
-  scaling_adjustment     = 4
+  scaling_adjustment     = 1
   cooldown               = 180
 }
 data "aws_vpc" "main"{
