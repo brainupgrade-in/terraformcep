@@ -5,7 +5,7 @@ resource "aws_launch_template" "test" {
   user_data = filebase64("app-launch.sh")
 }
 resource "aws_autoscaling_group" "test" {
-  # availability_zones        = ["ap-southeast-1a"]
+  availability_zones        = ["ap-southeast-1a"]
   name                      = "test"
   max_size                  = 3
   min_size                  = 1
@@ -18,7 +18,7 @@ resource "aws_autoscaling_group" "test" {
     version = "$Latest"
   }
   target_group_arns = [ aws_lb_target_group.test.arn ]
-  vpc_zone_identifier = [aws_subnet.rajesh-vpc-pb-1a.id,aws_subnet.rajesh-vpc-pb-1b.id]
+  # vpc_zone_identifier = [aws_subnet.rajesh-vpc-pb-1a.id,aws_subnet.rajesh-vpc-pb-1b.id]
 }
 resource "aws_autoscaling_policy" "test" {
   name                   = "test"
