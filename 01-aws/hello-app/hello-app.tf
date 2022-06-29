@@ -18,7 +18,6 @@ resource "aws_autoscaling_group" "test" {
     version = "$Latest"
   }
   target_group_arns = [ aws_lb_target_group.test.arn ]
-  # vpc_zone_identifier = [aws_subnet.rajesh-vpc-pb-1a.id,aws_subnet.rajesh-vpc-pb-1b.id]
 }
 resource "aws_autoscaling_policy" "test" {
   name                   = "test"
@@ -27,7 +26,9 @@ resource "aws_autoscaling_policy" "test" {
   scaling_adjustment     = 2
   cooldown               = 180
 }
-
+data "aws_vpc" "main"{
+    id="vpc-0fa1dcbf4951c2e69"
+}
 data "aws_subnet_ids" "test" {
   vpc_id = data.aws_vpc.main.id
 }
@@ -40,8 +41,8 @@ resource "aws_lb" "test" {
   name               = "test"
   internal           = false
   load_balancer_type = "network"
-  # subnets            = [for subnet in data.aws_subnet.test : subnet.id]
-  subnets = [aws_subnet.rajesh-vpc-pb-1a.id,aws_subnet.rajesh-vpc-pb-1b.id]
+   subnets            = [for subnet in data.aws_subnet.test : subnet.id]
+  #subnets = [aws_subnet.rajesh-vpc-pb-1a.id,aws_subnet.rajesh-vpc-pb-1b.id]
 
 }
 resource "aws_lb_listener" "test" {
