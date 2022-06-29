@@ -15,3 +15,6 @@ subnet_id = aws_subnet.rajesh-vpc-pb-1b.id
     sudo systemctl start httpd
   EOF
 }
+data "aws_key_pair" "keypair"{
+  key_name = "scbcepb3u"
+}
